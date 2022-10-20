@@ -20,15 +20,7 @@ class AnimalsListFragment : Fragment(R.layout.animals_fragment) {
         requestManager.setonAnimalListReceivedHandler { animalsList ->
             animalAdapter.setList(animalsList as MutableList<Animal>)
         }
-        requestManager.execute()
-    }
-
-    private fun createAnimalList(): List<Animal> {
-        val data = mutableListOf<Animal>()
-        for (i in 0..10) {
-            data.add(Animal())
-        }
-        return data
+        requestManager.start()
     }
 
     private fun initRecyclerView(view: View) {
